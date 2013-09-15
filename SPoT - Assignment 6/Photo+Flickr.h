@@ -1,0 +1,16 @@
+//
+//  Photo+Flickr.h
+//  SPoT - Assignment 6
+//
+//  Created by Ashley Robinson on 15/09/2013.
+//  Copyright (c) 2013 Ashley Robinson. All rights reserved.
+//
+
+#import "Photo.h"
+
+@interface Photo (Flickr)
+
++ (Photo *)photoWithFlickrInfo:(NSDictionary *)photoDictionary
+       inManagedObjectContecxt:(NSManagedObjectContext *)context;
+
+@end
