@@ -7,6 +7,7 @@
 //
 
 #import "Recent.h"
+#import "Photo.h"
 
 @interface Recent (Photo)
 

@@ -79,6 +79,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self sendDataforIndexPath:indexPath
+              toViewController:[self.splitViewController.viewControllers lastObject]];
+}
 
 
 @end

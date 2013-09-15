@@ -35,6 +35,7 @@
 		582E32ED17E60DCE0038055B /* TagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32EC17E60DCD0038055B /* TagTVC.m */; };
 		582E32F017E61D060038055B /* FlickrPhotoTagsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32EF17E61D060038055B /* FlickrPhotoTagsTVC.m */; };
 		582E32F317E620A30038055B /* Recent+Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32F217E620A30038055B /* Recent+Photo.m */; };
+		582E32F617E65B6C0038055B /* FlickrRecentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32F517E65B6B0038055B /* FlickrRecentsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		582E32EF17E61D060038055B /* FlickrPhotoTagsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoTagsTVC.m; sourceTree = "<group>"; };
 		582E32F117E620A30038055B /* Recent+Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Recent+Photo.h"; sourceTree = "<group>"; };
 		582E32F217E620A30038055B /* Recent+Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Recent+Photo.m"; sourceTree = "<group>"; };
+		582E32F417E65B6B0038055B /* FlickrRecentsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrRecentsTVC.h; sourceTree = "<group>"; };
+		582E32F517E65B6B0038055B /* FlickrRecentsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrRecentsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				582E32EC17E60DCD0038055B /* TagTVC.m */,
 				582E32EE17E61D060038055B /* FlickrPhotoTagsTVC.h */,
 				582E32EF17E61D060038055B /* FlickrPhotoTagsTVC.m */,
+				582E32F417E65B6B0038055B /* FlickrRecentsTVC.h */,
+				582E32F517E65B6B0038055B /* FlickrRecentsTVC.m */,
 				582E32E817E609990038055B /* ViewController.h */,
 				582E32E917E609990038055B /* ViewController.m */,
 				582E32BF17E5C96F0038055B /* ImageViewController.h */,
@@ -291,6 +296,7 @@
 				582E32ED17E60DCE0038055B /* TagTVC.m in Sources */,
 				582E32F017E61D060038055B /* FlickrPhotoTagsTVC.m in Sources */,
 				582E32F317E620A30038055B /* Recent+Photo.m in Sources */,
+				582E32F617E65B6C0038055B /* FlickrRecentsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
