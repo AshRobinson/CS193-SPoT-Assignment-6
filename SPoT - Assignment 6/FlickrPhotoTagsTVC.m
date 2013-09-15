@@ -8,19 +8,15 @@
 
 #import "FlickrPhotoTagsTVC.h"
 #import "FlickrFetcher.h"
-#import "RecentFlickrPhotos.h"
+//#import "RecentFlickrPhotos.h"
+#import "Photo.h"
+#import "Recent+Photo.h"
 
 @interface FlickrPhotoTagsTVC ()
 
 @end
 
 @implementation FlickrPhotoTagsTVC
-
-- (void)setPhotos:(NSArray *)photos
-{
-    _photos = photos;
-    [self.tableView reloadData];
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -35,33 +31,39 @@
     }
 }
 
-- (void)sendDataforIndexPath:(NSIndexPath *)indexPath toViewController:(UIViewController *)vc
+- (void)setTag:(Tag *)tag
 {
-    if ([vc respondsToSelector:@selector(setImageURL:)]) {
-        [RecentFlickrPhotos addPhoto:self.photos[indexPath.row]];
+    _tag = tag;
+    self.title = tag.name;
+    [self setupFetchedResultsViewController];
+}
+
+- (void)setupFetchedResultsViewController
+{
+    if (self.tag.managedObjectContext){
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                                  ascending:YES
+                                                                   selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.predicate = [NSPredicate predicateWithFormat:@"%@ in tags", self.tag];
         
-        
-        NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? FlickrPhotoFormatOriginal : FlickrPhotoFormatLarge];
-        [vc performSelector:@selector(setImageURL:) withObject:url];
-        [vc setTitle:[self titleForRow:indexPath.row]];
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                            managedObjectContext:self.tag.managedObjectContext
+                                                                              sectionNameKeyPath:nil
+                                                                                       cacheName:nil];
+    } else {
+        self.fetchedResultsController = nil;
     }
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)sendDataforIndexPath:(NSIndexPath *)indexPath toViewController:(UIViewController *)vc
 {
-    return [self.photos count];
-}
-
-- (NSString *)titleForRow:(NSUInteger)row
-{
-    return [self.photos[row][FLICKR_PHOTO_TITLE] description];
-}
-
-- (NSString *)subtitleForRow:(NSUInteger)row
-{
-    return [[self.photos[row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
+    if ([vc respondsToSelector:@selector(setImageURL:)]) {
+        Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [Recent recentPhoto:photo];
+        [vc performSelector:@selector(setImageURL:) withObject:[NSURL URLWithString:photo.imageURL]];
+        [vc performSelector:@selector(setTitle:) withObject:photo.title];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,17 +71,14 @@
     static NSString *CellIdentifier = @"Tags Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [self titleForRow:indexPath.row];
-    cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
+    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = photo.title;
+    cell.detailTextLabel.text = photo.subtitle;
+    
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self sendDataforIndexPath:indexPath
-              toViewController:[self.splitViewController.viewControllers lastObject]];
-}
 
 
 @end
