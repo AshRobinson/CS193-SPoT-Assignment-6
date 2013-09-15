@@ -16,17 +16,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    SharedDocumentHandler *sd = [SharedDocumentHandler sharedDocumentHandler];
-    [sd useDocument];
-    dispatch_queue_t queue = dispatch_queue_create("Get Photos", NULL);
+    
+    SharedDocumentHandler *sh = [SharedDocumentHandler sharedDocumentHandler];
+    [sh useDocumentWithOperation:NULL];
+    
+    dispatch_queue_t queue = dispatch_queue_create("Flickr Downloader", NULL);
     dispatch_async(queue, ^{
         NSArray *photos = [FlickrFetcher stanfordPhotos];
-        [sd.managedObjectContext performBlock:^{
-            for (NSDictionary *photo in photos){
-                [Photo photoWithFlickrInfo:photo inManagedObjectContecxt:sd.managedObjectContext];
+        //NSLog(@"%@", photos);
+        [sh.managedObjectContext performBlock:^{
+            for (NSDictionary *photo in photos) {
+                [Photo photoWithFlickrInfo:photo inManagedObjectContecxt:sh.managedObjectContext];
             }
         }];
     });
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

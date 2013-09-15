@@ -14,7 +14,7 @@
 
 + (SharedDocumentHandler *)sharedDocumentHandler;
 
-- (void)useDocument;
+- (void)useDocumentWithOperation:(void (^)(BOOL))block;
 
 
 @end
