@@ -248,6 +248,9 @@
         <class className="FlickrPhotoTagsTVC" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoTagsTVC.h"/>
         </class>
+        <class className="FlickrRecentsTVC" superclassName="FlickrPhotoTagsTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentsTVC.h"/>
+        </class>
         <class className="ImageViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
             <relationships>

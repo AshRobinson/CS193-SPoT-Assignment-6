@@ -69,7 +69,7 @@
                 imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
                 [NetworkActivityIndicator stop];
             }
-            [FlickrCache cacheImageData:imageData forURL:imageURL];
+            [FlickrCache cacheImageData:imageData forURL:self.imageURL];
             if (imageURL == self.imageURL) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIImage *image = [[UIImage alloc] initWithData:imageData];
@@ -183,4 +183,5 @@
 {
     self.splitViewBarButtonItem = nil;
 }
+
 @end

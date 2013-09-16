@@ -265,10 +265,10 @@
                     <navigationItem key="navigationItem" id="0z6-MF-G35"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
-                        <outlet property="barButtonTitle" destination="SJi-LN-b8M" id="4H1-FK-iet"/>
                         <outlet property="scrollView" destination="bvU-wu-2yx" id="UXe-G4-vWH"/>
                         <outlet property="spinner" destination="YOm-2G-faC" id="w8j-Aw-0XZ"/>
-                        <outlet property="toolBar" destination="ttW-47-VVt" id="keM-Jm-Xxv"/>
+                        <outlet property="titleBarButtonItem" destination="SJi-LN-b8M" id="CtF-Xn-TIv"/>
+                        <outlet property="toolbar" destination="ttW-47-VVt" id="huK-hU-cUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5b-4D-XmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
