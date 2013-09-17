@@ -11,6 +11,7 @@
 //#import "RecentFlickrPhotos.h"
 #import "Photo.h"
 #import "Recent+Photo.h"
+#import "NetworkActivityIndicator.h"
 
 @interface FlickrPhotoTagsTVC ()
 
@@ -74,10 +75,20 @@
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = photo.title;
     cell.detailTextLabel.text = photo.subtitle;
-    
-    
+    cell.imageView.image = [UIImage imageWithData:photo.thumbnail];
+    if (!cell.imageView.image) {
+        dispatch_queue_t queue = dispatch_queue_create("get thumbnail", 0);
+        dispatch_async(queue, ^{
+            NSData *thumbnailData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:photo.thumbnailURL]];
+            photo.thumbnail = thumbnailData;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [cell setNeedsLayout];
+            });
+        });
+    }
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

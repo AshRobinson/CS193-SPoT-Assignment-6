@@ -22,9 +22,6 @@
 		582E32BE17E5C9480038055B /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32BD17E5C9480038055B /* CoreDataTableViewController.m */; };
 		582E32C117E5C96F0038055B /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32C017E5C96F0038055B /* ImageViewController.m */; };
 		582E32C417E5CB8E0038055B /* SPoT-Assignment 6.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 582E32C217E5CB8E0038055B /* SPoT-Assignment 6.xcdatamodeld */; };
-		582E32D017E5F82C0038055B /* Recent.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32CF17E5F82C0038055B /* Recent.m */; };
-		582E32D317E5F82C0038055B /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32D217E5F82C0038055B /* Tag.m */; };
-		582E32D617E5F82C0038055B /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32D517E5F82C0038055B /* Photo.m */; };
 		582E32D917E5F8C50038055B /* Photo+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32D817E5F8C50038055B /* Photo+Flickr.m */; };
 		582E32DC17E5FE080038055B /* Tag+Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32DB17E5FE080038055B /* Tag+Flickr.m */; };
 		582E32DF17E6032E0038055B /* NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32DE17E6032E0038055B /* NetworkActivityIndicator.m */; };
@@ -36,6 +33,9 @@
 		582E32F017E61D060038055B /* FlickrPhotoTagsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32EF17E61D060038055B /* FlickrPhotoTagsTVC.m */; };
 		582E32F317E620A30038055B /* Recent+Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32F217E620A30038055B /* Recent+Photo.m */; };
 		582E32F617E65B6C0038055B /* FlickrRecentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32F517E65B6B0038055B /* FlickrRecentsTVC.m */; };
+		582EDEF617E8DE3400DA3CDE /* Recent.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDEF517E8DE3400DA3CDE /* Recent.m */; };
+		582EDEFC17E8DE3400DA3CDE /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDEFB17E8DE3400DA3CDE /* Tag.m */; };
+		582EDEFF17E8DE9D00DA3CDE /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDEFE17E8DE9D00DA3CDE /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,12 +62,6 @@
 		582E32BF17E5C96F0038055B /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		582E32C017E5C96F0038055B /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		582E32C317E5CB8E0038055B /* SPoT-Assignment 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SPoT-Assignment 6.xcdatamodel"; sourceTree = "<group>"; };
-		582E32CE17E5F82C0038055B /* Recent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recent.h; sourceTree = "<group>"; };
-		582E32CF17E5F82C0038055B /* Recent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recent.m; sourceTree = "<group>"; };
-		582E32D117E5F82C0038055B /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		582E32D217E5F82C0038055B /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		582E32D417E5F82C0038055B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		582E32D517E5F82C0038055B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		582E32D717E5F8C50038055B /* Photo+Flickr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Flickr.h"; sourceTree = "<group>"; };
 		582E32D817E5F8C50038055B /* Photo+Flickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Flickr.m"; sourceTree = "<group>"; };
 		582E32DA17E5FE080038055B /* Tag+Flickr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tag+Flickr.h"; sourceTree = "<group>"; };
@@ -89,6 +83,12 @@
 		582E32F217E620A30038055B /* Recent+Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Recent+Photo.m"; sourceTree = "<group>"; };
 		582E32F417E65B6B0038055B /* FlickrRecentsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrRecentsTVC.h; sourceTree = "<group>"; };
 		582E32F517E65B6B0038055B /* FlickrRecentsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrRecentsTVC.m; sourceTree = "<group>"; };
+		582EDEF417E8DE3400DA3CDE /* Recent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recent.h; sourceTree = "<group>"; };
+		582EDEF517E8DE3400DA3CDE /* Recent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recent.m; sourceTree = "<group>"; };
+		582EDEFA17E8DE3400DA3CDE /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		582EDEFB17E8DE3400DA3CDE /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		582EDEFD17E8DE9D00DA3CDE /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		582EDEFE17E8DE9D00DA3CDE /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +140,12 @@
 				582E32AB17E5C8D30038055B /* MainStoryboard_iPad.storyboard */,
 				582E32A817E5C8D30038055B /* MainStoryboard_iPhone.storyboard */,
 				582E32C217E5CB8E0038055B /* SPoT-Assignment 6.xcdatamodeld */,
+				582EDEFD17E8DE9D00DA3CDE /* Photo.h */,
+				582EDEFE17E8DE9D00DA3CDE /* Photo.m */,
+				582EDEFA17E8DE3400DA3CDE /* Tag.h */,
+				582EDEFB17E8DE3400DA3CDE /* Tag.m */,
+				582EDEF417E8DE3400DA3CDE /* Recent.h */,
+				582EDEF517E8DE3400DA3CDE /* Recent.m */,
 				582E32EB17E60DCD0038055B /* TagTVC.h */,
 				582E32EC17E60DCD0038055B /* TagTVC.m */,
 				582E32EE17E61D060038055B /* FlickrPhotoTagsTVC.h */,
@@ -150,16 +156,10 @@
 				582E32E917E609990038055B /* ViewController.m */,
 				582E32BF17E5C96F0038055B /* ImageViewController.h */,
 				582E32C017E5C96F0038055B /* ImageViewController.m */,
-				582E32D417E5F82C0038055B /* Photo.h */,
-				582E32D517E5F82C0038055B /* Photo.m */,
 				582E32D717E5F8C50038055B /* Photo+Flickr.h */,
 				582E32D817E5F8C50038055B /* Photo+Flickr.m */,
-				582E32D117E5F82C0038055B /* Tag.h */,
-				582E32D217E5F82C0038055B /* Tag.m */,
 				582E32DA17E5FE080038055B /* Tag+Flickr.h */,
 				582E32DB17E5FE080038055B /* Tag+Flickr.m */,
-				582E32CE17E5F82C0038055B /* Recent.h */,
-				582E32CF17E5F82C0038055B /* Recent.m */,
 				582E32F117E620A30038055B /* Recent+Photo.h */,
 				582E32F217E620A30038055B /* Recent+Photo.m */,
 				582E32E017E603500038055B /* FlickrCache.h */,
@@ -284,9 +284,6 @@
 				582E32BE17E5C9480038055B /* CoreDataTableViewController.m in Sources */,
 				582E32C117E5C96F0038055B /* ImageViewController.m in Sources */,
 				582E32C417E5CB8E0038055B /* SPoT-Assignment 6.xcdatamodeld in Sources */,
-				582E32D017E5F82C0038055B /* Recent.m in Sources */,
-				582E32D317E5F82C0038055B /* Tag.m in Sources */,
-				582E32D617E5F82C0038055B /* Photo.m in Sources */,
 				582E32D917E5F8C50038055B /* Photo+Flickr.m in Sources */,
 				582E32DC17E5FE080038055B /* Tag+Flickr.m in Sources */,
 				582E32DF17E6032E0038055B /* NetworkActivityIndicator.m in Sources */,
@@ -297,6 +294,9 @@
 				582E32F017E61D060038055B /* FlickrPhotoTagsTVC.m in Sources */,
 				582E32F317E620A30038055B /* Recent+Photo.m in Sources */,
 				582E32F617E65B6C0038055B /* FlickrRecentsTVC.m in Sources */,
+				582EDEF617E8DE3400DA3CDE /* Recent.m in Sources */,
+				582EDEFC17E8DE3400DA3CDE /* Tag.m in Sources */,
+				582EDEFF17E8DE9D00DA3CDE /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +429,7 @@
 				582E32B517E5C8D30038055B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -32,6 +32,8 @@
         photo.subtitle = [[photoDictionary valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
         photo.imageURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatLarge] absoluteString];
         photo.tags = [Tag tagsFromFlickrInfo:photoDictionary forManagedObjectContext:context];
+        photo.thumbnailURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatSquare] absoluteString];
+        
     } else {
         photo = [matches lastObject];
     }
