@@ -13,4 +13,6 @@
 + (Photo *)photoWithFlickrInfo:(NSDictionary *)photoDictionary
        inManagedObjectContecxt:(NSManagedObjectContext *)context;
 
+- (void)delete;
+
 @end

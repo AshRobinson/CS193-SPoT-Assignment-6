@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * unique;
 @property (nonatomic, retain) NSData * thumbnail;
+@property (nonatomic, retain) NSString * firstLetter;
 @property (nonatomic, retain) Recent *recent;
 @property (nonatomic, retain) NSSet *tags;
 @end

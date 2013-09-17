@@ -19,6 +19,7 @@
 @dynamic title;
 @dynamic unique;
 @dynamic thumbnail;
+@dynamic firstLetter;
 @dynamic recent;
 @dynamic tags;
 

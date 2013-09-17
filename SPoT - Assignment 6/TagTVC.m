@@ -36,15 +36,19 @@
     [self.refreshControl addTarget:self
                             action:@selector(loadPhotosFromFlickr)
                   forControlEvents:UIControlEventValueChanged];
-    [self loadPhotosFromFlickr];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (self.sh.managedObjectContext) [self.sh useDocumentWithOperation:^(BOOL success) {
-        [self setupFetchedResultsController];
-    }];
+    if (!self.sh.managedObjectContext) {
+        [self.sh useDocumentWithOperation:^(BOOL success) {
+            [self setupFetchedResultsController];
+            if (![self.fetchedResultsController.fetchedObjects count]){
+                [self loadPhotosFromFlickr];
+            }
+        }];
+    }
 }
 
 - (void)setupFetchedResultsController
@@ -105,7 +109,6 @@
         }
     }
 }
-
 
 
 #pragma mark - Table view data source

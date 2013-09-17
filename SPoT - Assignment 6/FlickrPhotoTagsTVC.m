@@ -9,9 +9,10 @@
 #import "FlickrPhotoTagsTVC.h"
 #import "FlickrFetcher.h"
 //#import "RecentFlickrPhotos.h"
-#import "Photo.h"
+#import "Photo+Flickr.h"
 #import "Recent+Photo.h"
 #import "NetworkActivityIndicator.h"
+#import "SharedDocumentHandler.h"
 
 @interface FlickrPhotoTagsTVC ()
 
@@ -50,7 +51,7 @@
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:self.tag.managedObjectContext
-                                                                              sectionNameKeyPath:nil
+                                                                              sectionNameKeyPath:@"firstLetter"
                                                                                        cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
@@ -87,6 +88,17 @@
         });
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [photo.managedObjectContext performBlock:^{
+            [photo delete];
+            [[SharedDocumentHandler sharedDocumentHandler] saveDocument];
+        }];
+    }
 }
 
 
