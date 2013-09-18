@@ -35,7 +35,7 @@
 		582E32F617E65B6C0038055B /* FlickrRecentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E32F517E65B6B0038055B /* FlickrRecentsTVC.m */; };
 		582EDEF617E8DE3400DA3CDE /* Recent.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDEF517E8DE3400DA3CDE /* Recent.m */; };
 		582EDEFC17E8DE3400DA3CDE /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDEFB17E8DE3400DA3CDE /* Tag.m */; };
-		582EDF0217E8E6A200DA3CDE /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDF0117E8E6A200DA3CDE /* Photo.m */; };
+		582EDF0817EA32F800DA3CDE /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EDF0717EA32F800DA3CDE /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,8 +87,8 @@
 		582EDEF517E8DE3400DA3CDE /* Recent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recent.m; sourceTree = "<group>"; };
 		582EDEFA17E8DE3400DA3CDE /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		582EDEFB17E8DE3400DA3CDE /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		582EDF0017E8E6A200DA3CDE /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		582EDF0117E8E6A200DA3CDE /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		582EDF0617EA32F800DA3CDE /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		582EDF0717EA32F800DA3CDE /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +139,9 @@
 			children = (
 				582E32AB17E5C8D30038055B /* MainStoryboard_iPad.storyboard */,
 				582E32A817E5C8D30038055B /* MainStoryboard_iPhone.storyboard */,
+				582EDF0617EA32F800DA3CDE /* Photo.h */,
+				582EDF0717EA32F800DA3CDE /* Photo.m */,
 				582E32C217E5CB8E0038055B /* SPoT-Assignment 6.xcdatamodeld */,
-				582EDF0017E8E6A200DA3CDE /* Photo.h */,
-				582EDF0117E8E6A200DA3CDE /* Photo.m */,
 				582EDEFA17E8DE3400DA3CDE /* Tag.h */,
 				582EDEFB17E8DE3400DA3CDE /* Tag.m */,
 				582EDEF417E8DE3400DA3CDE /* Recent.h */,
@@ -296,7 +296,7 @@
 				582E32F617E65B6C0038055B /* FlickrRecentsTVC.m in Sources */,
 				582EDEF617E8DE3400DA3CDE /* Recent.m in Sources */,
 				582EDEFC17E8DE3400DA3CDE /* Tag.m in Sources */,
-				582EDF0217E8E6A200DA3CDE /* Photo.m in Sources */,
+				582EDF0817EA32F800DA3CDE /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

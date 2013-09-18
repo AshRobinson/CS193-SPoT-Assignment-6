@@ -18,30 +18,36 @@
     Photo *photo = nil;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"unique = %@", [photoDictionary[FLICKR_PHOTO_ID] description]];
-    
+    request.predicate = [NSPredicate predicateWithFormat:@"unique = %@",
+                         [photoDictionary[FLICKR_PHOTO_ID] description]];
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];
-    
-    if(!matches || ([matches count] > 1)){
+    if (!matches || ([matches count] > 1) || error) {
         NSLog(@"Error in photoWithFlickrInfo: %@ %@", matches, error);
     } else if (![matches count]) {
-        photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+        photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo"
+                                              inManagedObjectContext:context];
         photo.unique = [photoDictionary[FLICKR_PHOTO_ID] description];
         photo.title = [photoDictionary[FLICKR_PHOTO_TITLE] description];
-        photo.subtitle = [[photoDictionary valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
-        photo.imageURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatLarge] absoluteString];
-        photo.tags = [Tag tagsFromFlickrInfo:photoDictionary forManagedObjectContext:context];
-        photo.thumbnailURL = [[FlickrFetcher urlForPhoto:photoDictionary format:FlickrPhotoFormatSquare] absoluteString];
         photo.firstLetter = [photo.title substringToIndex:1];
+        photo.subtitle = [[photoDictionary valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
+        photo.imageURL = [[FlickrFetcher urlForPhoto:photoDictionary
+                                              format:([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? FlickrPhotoFormatOriginal : FlickrPhotoFormatLarge] absoluteString];
+        photo.thumbnailURL = [[FlickrFetcher urlForPhoto:photoDictionary
+                                                  format:FlickrPhotoFormatSquare] absoluteString];
+        
+        photo.tags = [Tag tagsFromFlickrInfo:photoDictionary forManagedObjectContext:context];
+        
+        NSArray *tags = [[photo.tags allObjects] sortedArrayUsingComparator:^NSComparisonResult(Tag *tag1, Tag *tag2) {
+            return [tag1.name compare:tag2.name];
+        }];
+        photo.tagsString = [((Tag *)tags[1]).name capitalizedString];
     } else {
         photo = [matches lastObject];
     }
     
     return photo;
 }
-
 - (void)delete
 {
     for (Tag *tag in self.tags) {

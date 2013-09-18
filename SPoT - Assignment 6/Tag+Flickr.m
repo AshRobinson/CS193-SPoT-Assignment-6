@@ -22,6 +22,7 @@
     NSError *error;
     Tag *tag = nil;
     NSMutableSet *tags = [NSMutableSet setWithCapacity:[tagStrings count]];
+    tagStrings = [tagStrings arrayByAddingObject:ALL_TAGS_STRING];
     
     for (NSString *tagString in tagStrings){
         if (!tagString) continue;

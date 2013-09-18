@@ -10,6 +10,8 @@
 
 @interface Tag (Flickr)
 
+#define ALL_TAGS_STRING @"00000"
+
 + (NSSet *)tagsFromFlickrInfo:(NSDictionary *)photoDictionary
       forManagedObjectContext:(NSManagedObjectContext *)context;
 

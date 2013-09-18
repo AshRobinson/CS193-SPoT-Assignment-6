@@ -13,6 +13,7 @@
 #import "Recent+Photo.h"
 #import "NetworkActivityIndicator.h"
 #import "SharedDocumentHandler.h"
+#import "Tag+Flickr.h"  
 
 @interface FlickrPhotoTagsTVC ()
 
@@ -36,22 +37,33 @@
 - (void)setTag:(Tag *)tag
 {
     _tag = tag;
-    self.title = tag.name;
+    if ([tag.name isEqualToString:ALL_TAGS_STRING]) {
+        self.title = @"All";
+    } else {
+        self.title = [tag.name capitalizedString];
+    }
     [self setupFetchedResultsViewController];
 }
 
 - (void)setupFetchedResultsViewController
 {
-    if (self.tag.managedObjectContext){
+    if (self.tag.managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
                                                                   ascending:YES
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
+        NSString *sectionNameKeyPath = @"firstLetter";
+        if ([self.tag.name isEqualToString:ALL_TAGS_STRING]) {
+            request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"tagsString"
+                                                                      ascending:YES],
+                                        [request.sortDescriptors lastObject]];
+            sectionNameKeyPath = @"tagsString";
+        }
         request.predicate = [NSPredicate predicateWithFormat:@"%@ in tags", self.tag];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:self.tag.managedObjectContext
-                                                                              sectionNameKeyPath:@"firstLetter"
+                                                                              sectionNameKeyPath:sectionNameKeyPath
                                                                                        cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
