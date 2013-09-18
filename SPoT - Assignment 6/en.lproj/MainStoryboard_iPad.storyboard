@@ -282,6 +282,10 @@
         </class>
         <class className="FlickrPhotoTagsTVC" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoTagsTVC.h"/>
+            <relationships>
+                <relationship kind="action" name="searchButtonPressed:"/>
+                <relationship kind="outlet" name="searchBarButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="FlickrRecentsTVC" superclassName="FlickrPhotoTagsTVC">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentsTVC.h"/>

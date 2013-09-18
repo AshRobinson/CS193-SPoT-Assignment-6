@@ -13,5 +13,6 @@
 @interface FlickrPhotoTagsTVC : CoreDataTableViewController
 
 @property (nonatomic, strong) Tag *tag;
+@property (nonatomic, strong) NSPredicate *searchPredicate;
 
 @end

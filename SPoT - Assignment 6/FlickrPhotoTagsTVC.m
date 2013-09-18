@@ -15,11 +15,65 @@
 #import "SharedDocumentHandler.h"
 #import "Tag+Flickr.h"  
 
-@interface FlickrPhotoTagsTVC ()
+@interface FlickrPhotoTagsTVC () <UISearchBarDelegate>
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *searchBarButton;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
 @implementation FlickrPhotoTagsTVC
+
+- (UIBarButtonItem *)searchBarButton
+{
+    if (!_searchBarButton) _searchBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                                            target:self
+                                                                                            action:@selector(searchButtonPressed:)];
+    return _searchBarButton;
+}
+
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc]
+                      initWithFrame:self.navigationController.navigationBar.frame];
+        self.searchBar.delegate = self;
+    }
+    return _searchBar;
+}
+
+- (void)viewDidLoad
+{
+    self.navigationItem.rightBarButtonItem = self.searchBarButton;
+}
+
+- (IBAction)searchButtonPressed:(id)sender
+{
+    if (self.tableView.tableHeaderView) {
+        self.tableView.tableHeaderView = nil;
+    } else {
+        self.tableView.tableHeaderView = self.searchBar;
+        if (self.searchPredicate) {
+            self.searchPredicate = nil;
+            [self setupFetchedResultsViewController];
+        }
+        [self.searchBar becomeFirstResponder];
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText length]) {
+        self.searchPredicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", searchText];
+    } else {
+        self.searchPredicate = nil;
+    }
+    [self setupFetchedResultsViewController];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    self.tableView.tableHeaderView = nil;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -60,6 +114,10 @@
             sectionNameKeyPath = @"tagsString";
         }
         request.predicate = [NSPredicate predicateWithFormat:@"%@ in tags", self.tag];
+        
+        if (self.searchPredicate) {
+            request.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, self.searchPredicate]];
+        }
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:self.tag.managedObjectContext
